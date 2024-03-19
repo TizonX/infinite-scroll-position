@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Infinite Scroll</title>
+  </head>
+  <body>
+    <div id="scrollable-container">
+      <div id="content">
+        <!-- Initial content -->
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div id="one" class="item">vishal</div>
+        <div id="loading" class="loading" style="display: none">Loading...</div>
+      </div>
+    </div>
+    <!-- <script src="src/index.js"></script> -->
+    <script>
+      const scrollableContainer = document.getElementById(
+        "scrollable-container"
+      );
+      const content = (document.getElementById("content").style.color = "red");
+      const loadingIndicator = document.getElementById("loading");
+      const items = (document.querySelectorAll("item").style.background =
+        "green");
+
+      const threshold = 1000; // Adjust this value as needed
+      let isLoading = false;
+
+      scrollableContainer.addEventListener("scroll", () => {
+        if (isLoading) return;
+
+        const { scrollTop, scrollHeight, clientHeight } = scrollableContainer;
+
+        if (scrollHeight - scrollTop - clientHeight < threshold) {
+          // User has reached the bottom, trigger action to load more content
+          loadMoreContent();
+        }
+      });
+
+      function loadMoreContent() {
+        isLoading = true;
+        loadingIndicator.style.display = "block";
+
+        // Simulate loading more content after a short delay
+        setTimeout(() => {
+          for (let i = 0; i < 5; i++) {
+            const newItem = document.createElement("div");
+            newItem.className = "item";
+            newItem.textContent = `Item ${content.children.length + 1}`;
+            content.appendChild(newItem);
+          }
+
+          isLoading = false;
+          loadingIndicator.style.display = "none";
+        }, 1000); // Simulated loading time
+      }
+    </script>
+  </body>
+</html>

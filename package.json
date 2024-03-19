@@ -1,0 +1,20 @@
+{
+  "name": "ls",
+  "version": "1.0.0",
+  "description": "infinite-scroll",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TizonX/infinite-scroll-position.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TizonX/infinite-scroll-position/issues"
+  },
+  "homepage": "https://github.com/TizonX/infinite-scroll-position#readme"
+}

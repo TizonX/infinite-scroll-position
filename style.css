@@ -1,0 +1,23 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#scrollable-container {
+  height: 100px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.item {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 10px;
+  font-style: italic;
+}
